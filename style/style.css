@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* general/utility stuff */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.container {
+  margin: auto;
+  max-width: 97%;
+  overflow: auto;
+}
+
+.selected {
+  border: thick solid #1fab89;
+}
+
+/* Navbar */
+#navbar {
+  background: #d7fbe8;
+  color: white;
+  overflow: auto;
+}
+
+#navbar h1 {
+  float: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #1fab89;
+}
+
+/* Notes */
+
+:root {
+  --bittersweet: #d7fbe8;
+}
+
+.note {
+  max-width: 1080px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+.note h2 {
+  font-size: 2.6rem;
+  text-align: center;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+.note-input h3 {
+  color: #d7fbe8;
+}
+.note-wrapper {
+  margin: 0.7rem 0;
+  padding: 0.5rem 0;
+}
+#note-title,
+#note-content {
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.05rem;
+  padding: 0.55rem;
+  margin-bottom: 0.8rem;
+  border-radius: 2px;
+}
+#note-content {
+  resize: none;
+}
+#note-title:focus,
+#note-content:focus {
+  outline: 0;
+}
+
+.note-list {
+  margin: 2rem 0;
+  background: #d7fbe8;
+  padding: 2rem;
+  border-radius: 2px;
+}
+.note-item {
+  background: white;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 2px;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+}
+.note-item h3 {
+  margin-bottom: 1rem;
+}
+
+#main-heading {
+  color: #1fab89;
+}
+
+.note-item p {
+  padding-bottom: 0.8rem;
+}
+.note-item .btn {
+  margin-top: 0.8rem;
+  background: #1fab89;
+  border: 2px solid #d7fbe8;
+  color: #d7fbe8;
+}
+
+textarea {
+  border-color: Transparent;
+  overflow: auto;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.05rem;
+  padding: 0.55rem;
+  margin-bottom: 0.8rem;
+  border-radius: 2px;
+  resize: none;
+}
+
+/* buttons */
+
+.btn {
+  background: #d7fbe8;
+  border: 2px solid #d7fbe8;
+  color: #1fab89;
+  padding: 0.55rem 0;
+  width: 100px;
+  border-radius: 2px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn:hover {
+  background: #1fab89;
+  color: #d7fbe8;
+  box-shadow: 0 0 8px 0 rgba(74, 177, 104, 0.33);
+}
+
+/* display single notes per line on screens smaller than 992px */
+@media (min-width: 992px) {
+  .note-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* alert */
+.warning {
+  border-color: rgba(243, 35, 2, 0.8) !important;
+}

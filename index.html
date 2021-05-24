@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/ddf8b55688.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Notes</title>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="container">
+          <h1 class="brand">Notes</h1>
+        </div>
+      </nav>
+    </header>
+
+    <div class="note">
+      <div class="note-input">
+        <h3 id="main-heading">Add A New Note:</h3>
+        <div class="note-wrapper">
+          <input type="text" id="note-title" placeholder="Title of the note" />
+          <textarea
+            rows="5"
+            maxlength="255"
+            placeholder="Write your note here ... "
+            id="note-content"
+          ></textarea>
+          <button type="button" class="btn" id="add-note-btn">
+            <span><i class="fas fa-plus"></i></span>
+            Add Note
+          </button>
+        </div>
+      </div>
+
+      <div class="note-list"></div>
+
+      <button type="button" class="btn" id="delete-all-btn">
+        <span><i class="fas fa-trash"></i></span>
+        Delete All
+      </button>
+    </div>
+
+    <footer></footer>
+
+    <script src="js/index.js"></script>
+
+    <script></script>
+  </body>
+</html>
