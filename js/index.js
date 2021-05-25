@@ -6,9 +6,7 @@ let swapFirst;
 let swapSecond;
 
 //note object
-function Note(id, title, content) {
-  this.id = id;
-  this.title = title;
+function Note(content) {
   this.content = content;
 }
 
@@ -27,29 +25,25 @@ eventListeners();
 
 // add a new note in the list
 function addNewNote() {
-  const noteTitle = document.getElementById("note-title"),
-    noteContent = document.getElementById("note-content");
+  const noteContent = document.getElementById("note-content");
   //make sure title and content aren't empty
-  if (validateInput(noteTitle, noteContent)) {
-    let noteItem = new Note(noteID, noteTitle.value, noteContent.value);
+  if (validateInput(noteContent)) {
+    let noteItem = new Note(noteContent.value);
     noteID++;
     notes.push(noteItem);
     createNote(noteItem);
-    noteTitle.value = "";
     noteContent.value = "";
   }
 }
 
 //validate that title and content aren't empty
-function validateInput(title, content) {
-  if (title.value !== "" && content.value !== "") {
+function validateInput(content) {
+  if (content.value !== "") {
     return true;
   } else {
-    if (title.value === "") title.classList.add("warning");
     if (content.value === "") content.classList.add("warning");
   }
   setTimeout(() => {
-    title.classList.remove("warning");
     content.classList.remove("warning");
   }, 1500);
 }
@@ -58,9 +52,7 @@ function validateInput(title, content) {
 function createNote(noteItem) {
   const div = document.createElement("div");
   div.classList.add("note-item");
-  div.setAttribute("data-id", noteItem.id);
   div.innerHTML = `
-        <h3>${noteItem.title}</h3>
         <textarea maxlength="255" rows="8" cols="50" readonly class="textFieldToEdit">${noteItem.content}</textarea>
         <br>
         <button type = "button" class = "btn delete-note-btn">
