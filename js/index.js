@@ -16,6 +16,7 @@ function Note(id, title, content) {
 function eventListeners() {
   document.getElementById("add-note-btn").addEventListener("click", addNewNote);
   noteListDiv.addEventListener("click", deleteNote);
+  noteListDiv.addEventListener("click", selectNotes);
   document
     .getElementById("delete-all-btn")
     .addEventListener("click", deleteAllNotes);
@@ -72,8 +73,6 @@ function createNote(noteItem) {
         </button>
     `;
   noteListDiv.appendChild(div);
-
-  selectNotes();
 }
 
 //edit notes
@@ -92,40 +91,36 @@ function editText(elem) {
 }
 
 //select and swap notes
-function selectNotes() {
-  let notes = document.querySelectorAll(".note-item");
-
-  notes.forEach((note) => {
-    note.addEventListener("click", function () {
-      if (note.classList.contains("selected")) {
-        note.classList.remove("selected");
-        if ((swapFirst = note)) {
-          swapFirst = null;
-        } else {
-          swapFirst = note;
-        }
+function selectNotes(e) {
+  if (e.target.classList.contains("note-item")) {
+    if (e.target.classList.contains("selected")) {
+      e.target.classList.remove("selected");
+      if ((swapFirst = e.target)) {
+        swapFirst = null;
       } else {
-        note.classList.add("selected");
-        if (swapFirst == null) {
-          swapFirst = note;
-        } else {
-          swapSecond = note;
-
-          swapElements(swapFirst, swapSecond);
-          swapFirst = null;
-          swapSecond = null;
-
-          let selected = document.querySelectorAll(".selected");
-
-          selected.forEach((item) => {
-            setTimeout(function () {
-              item.classList.remove("selected");
-            }, 500);
-          });
-        }
+        swapFirst = e.target;
       }
-    });
-  });
+    } else {
+      e.target.classList.add("selected");
+      if (swapFirst == null) {
+        swapFirst = e.target;
+      } else {
+        swapSecond = e.target;
+
+        swapElements(swapFirst, swapSecond);
+        swapFirst = null;
+        swapSecond = null;
+
+        let selected = document.querySelectorAll(".selected");
+
+        selected.forEach((item) => {
+          setTimeout(function () {
+            item.classList.remove("selected");
+          }, 500);
+        });
+      }
+    }
+  }
 }
 
 //swap notes
